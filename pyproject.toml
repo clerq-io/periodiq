@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "periodiq"
-version = "0.12.1"
+version = "0.12.2"
 description = "Simple Scheduler for Dramatiq Task Queue"
 authors = ["Étienne BERSAC"]
 license = "LGPL-3.0+"
@@ -10,7 +10,7 @@ include = ["COPYING", "COPYING.LESSER"]
 [tool.poetry.dependencies]
 python = "^3.5"
 dramatiq = "^1.5"
-pendulum = "^2.0"
+pendulum = ">=2.0, <= 3.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.3"
