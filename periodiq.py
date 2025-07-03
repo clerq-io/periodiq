@@ -6,7 +6,10 @@ import sys
 from copy import deepcopy
 from calendar import monthrange
 from datetime import timedelta
-from pkg_resources import get_distribution
+try:
+    from importlib.metadata import version  # Python 3.8+
+except ImportError:
+    from importlib_metadata import version  # Python <3.8
 from queue import Queue
 try:
     from signal import (
@@ -322,7 +325,7 @@ def main(args):
 
 
 def make_argument_parser():
-    dist = get_distribution('periodiq')
+    _version = version('periodiq')
     parser = argparse.ArgumentParser(
         prog="periodiq",
         description="Run periodiq scheduler.",
@@ -344,7 +347,7 @@ def make_argument_parser():
         help="the module import path (default: %(default)s)",
     )
 
-    parser.add_argument("--version", action="version", version=dist.version)
+    parser.add_argument("--version", action="version", version=_version)
     parser.add_argument(
         "--verbose", "-v", default=0, action="count",
         help="turn on verbose log output",
