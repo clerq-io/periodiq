@@ -260,7 +260,7 @@ def format_interval(start, stop, names=None):
     if stop == start:
         return str(start if names is None else names[start])
     elif names:
-        return ','.join(names[start:stop+1])
+        return ','.join(names[start:stop + 1])
     else:
         return '%s-%s' % (start, stop)
 
